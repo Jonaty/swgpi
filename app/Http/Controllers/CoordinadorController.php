@@ -20,7 +20,7 @@ class CoordinadorController extends Controller
 
        public function create()
     {
-        //
+        return view('coordinador.asig_materias');
     }
 
     public function store(Request $request)

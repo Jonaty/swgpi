@@ -12,14 +12,15 @@
 <div class="panel panel-primary">
 
 		<div class="panel-body">
-			Universidad de Colima
+			<h1 class="text-center">Universidad de Colima</h1>
 		</div>
 	</div>
 
-	
-	@include('template.modulos.navbar')
-	
+		
 	@yield('contenido')
+
+	@include('template.modulos.navbar')
+
 </div>
 	
 </body>

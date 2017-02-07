@@ -3,20 +3,23 @@
 @php
 	function activeMenu($url)
 	{
-		return request()->is($url) ? 'text-danger' : '';
+		return request()->is($url) ? 'text-background' : '';
 	}
 @endphp
 	<nav>
 	<ul class="nav nav-pills">
 		
 		@if (Auth::check())
-		<li><a class="{{ activeMenu('/')}}" href="{{ route('home') }}">Home</a></li>
-		
+{{-- 		<li><a class="{{ activeMenu('/')}}" href="{{ route('home') }}">Home</a></li>
+ --}}		
 		@if (Auth::user()->hasRoles('coordinador'))
-			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador">Coordinador Académico</a></li>
+			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador/create">Asignar Materias</a></li>
+			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador">Válidar Usuarios</a></li>
+			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador">Protocolos</a></li>
 		
 		@elseif(Auth::user()->hasRoles('tutor'))
-		<li><a class="{{ activeMenu('tutor')}}" href="/tutor">Tutor de Proyecto</a></li>
+		<li><a class="{{ activeMenu('tutor')}}" href="/tutor">Protocolo</a></li>
+		<li><a class="{{ activeMenu('tutor')}}" href="/tutor">Sistema</a></li>
         
         @elseif(Auth::user()->hasRoles('docente'))
 		<li><a class="{{ activeMenu('docente')}}" href="/docente">Docente</a></li>

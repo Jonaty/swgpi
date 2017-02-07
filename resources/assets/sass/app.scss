@@ -2,15 +2,36 @@
 
 .panel-body
 {
-	height: 60px;
+	height: 100px;
 	margin-top: 40px;
 	background-color: green;
 	color: white;
-	font-size: 20px;
 
 }
 
 .text-right
 {
 	text-align: right;
+}
+
+header
+{
+	margin-left: 35%;
+}
+
+header nav ul li 
+{
+	background-color: #31B404;
+}
+
+header nav ul li a
+{
+	color: white;
+	border-radius: 2px;
+}
+
+.text-background
+{
+	color: white;
+	background-color: green;
 }
