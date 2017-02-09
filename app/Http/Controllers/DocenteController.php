@@ -6,81 +6,107 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Protocolo;
+
 class DocenteController extends Controller
 {
     function __construct()
     {
-        $this->middleware(['auth', 'roles:docente']);
+        $this->middleware(['auth', 'roles:Docente']);
     }
     
     public function index()
     {
-        return view('docente.index');
+        $protocolos = Protocolo::all();
+        return view('docente.index', compact('protocolos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        //return view('docente.protocolo');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // Protocolo::create($request->all());
+
+        // return redirect()->route('docente.create')->with('info', 'Protocolo enviado!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $protocolo = Protocolo::find($id);
+
+        return view('docente.protocoloShow', compact('protocolo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $protocolo = Protocolo::find($id);
+
+        return view('docente.editar', compact('protocolo'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
-    }
+        Protocolo::find($id)->update($request->all());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        return redirect()->route('docente.edit')->with('info2', 'Protocolo Editado');
+    }
     public function destroy($id)
     {
         //
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@ class CoordinadorController extends Controller
 {
     function __construct()
     {
-        $this->middleware(['auth', 'roles:coordinador']);
+        $this->middleware(['auth', 'roles:Coordinador']);
     }
 
     public function index()

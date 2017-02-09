@@ -12,17 +12,17 @@
 		@if (Auth::check())
 {{-- 		<li><a class="{{ activeMenu('/')}}" href="{{ route('home') }}">Home</a></li>
  --}}		
-		@if (Auth::user()->hasRoles('coordinador'))
+		@if (Auth::user()->hasRoles('Coordinador'))
 			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador/create">Asignar Materias</a></li>
 			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador">Válidar Usuarios</a></li>
 			<li><a class="{{ activeMenu('coordinador')}}" href="/coordinador">Protocolos</a></li>
 		
-		@elseif(Auth::user()->hasRoles('tutor'))
+		@elseif(Auth::user()->hasRoles('Tutor'))
 		<li><a class="{{ activeMenu('tutor')}}" href="/tutor">Protocolo</a></li>
 		<li><a class="{{ activeMenu('tutor')}}" href="/tutor">Sistema</a></li>
         
-        @elseif(Auth::user()->hasRoles('docente'))
-		<li><a class="{{ activeMenu('docente')}}" href="/docente">Docente</a></li>
+        @elseif(Auth::user()->hasRoles('Docente'))
+		<li><a class="{{ activeMenu('docente')}}" href="/docente">Protocolos</a></li>
 		@endif
         
         <li><a href="/salir">Salir</a></li>

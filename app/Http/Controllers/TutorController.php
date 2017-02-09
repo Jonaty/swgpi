@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Protocolo;
+
 class TutorController extends Controller
 {
      function __construct()
     {
-        $this->middleware(['auth', 'roles:tutor']);
+        $this->middleware(['auth', 'roles:Tutor']);
     }
     
     public function index()
@@ -20,12 +22,14 @@ class TutorController extends Controller
 
     public function create()
     {
-        //
+        return view('tutor.create');
     }
 
     public function store(Request $request)
-    {
-        //
+    { 
+        Protocolo::create($request->all());
+
+        return redirect()->route('tutor.create')->with('info', 'Protocolo enviado!');
     }
 
     public function show($id)
